@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{htmlWebpackPlugin.options.description}}">
+    <title>{{htmlWebpackPlugin.options.title}}</title>
+
+</head>
+
+<body>
+    <header class="main-header">
+        <nav class="main-header__nav">
+            <ul class="main-header__item-list">
+                <li class="main-header__item">
+                    <a class="{{htmlWebpackPlugin.options.articleActive}}"
+                        href="{{htmlWebpackPlugin.options.serverPrefix}}/article{{htmlWebpackPlugin.options.html}}">Article</a>
+                </li>
+                <li class="main-header__item">
+                    <a class="{{htmlWebpackPlugin.options.tweetActive}}"
+                        href="{{htmlWebpackPlugin.options.serverPrefix}}/tweet{{htmlWebpackPlugin.options.html}}">Tweet</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 class="title">{{htmlWebpackPlugin.options.title}}</h1>
+
+        <form class="search-form">
+            <div class="form-control">
+                <label for="article-url">{{htmlWebpackPlugin.options.label}}</label>
+                <input id="article-url" name="article-url" type="text" class="search__field"
+                    placeholder="{{htmlWebpackPlugin.options.placeholder}}">
+            </div>
+
+            <button class="btn search__btn">
+                <span>Search</span>
+            </button>
+        </form>
+        <div class="loading"></div>
+        <div class="results"></div>
+
+
+
+    </main>
+    <div class="footer">
+        <div class="author">&copy; by Jean-François Molderez</div>
+        <div class="tribute">
+            Powered by
+            <a href="https://aylien.com/" target="_blank" class="link">Aylien.com</a>
+        </div>
+    </div>
+
+    <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event 
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js').then(registration => {
+                    console.log('SW registered: ', registration);
+                }).catch(registrationError => {
+                    console.log('SW registration failed: ', registrationError);
+                });
+            });
+        }
+    </script>
+
+</body>
+
+</html>
