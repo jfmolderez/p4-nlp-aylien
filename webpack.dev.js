@@ -2,6 +2,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+
 module.exports = {
     entry: {
         'article': './src/client/article.js',
@@ -88,5 +89,6 @@ module.exports = {
             html: '.html',
             template: 'src/client/index.hbs'
         }),
+
     ]
 }
