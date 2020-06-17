@@ -11,6 +11,7 @@ To run the application in development mode:
   - start the back-end server (express server running on port 8888) : `npm start`
   - build and start the application using the webpack-dev-server (running on port 9000) : `npm run dev`
   - go to the URL `localhost:9000` in your browser to experiment the app ;
+  
 To run the application in production mode:
   - build the application : `npm run build`
   - start the express server : `npm start`
